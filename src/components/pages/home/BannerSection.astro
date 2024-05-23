@@ -1,0 +1,19 @@
+---
+import MountainIcon from "../../icons/MountainIcon.astro";
+import BannerItem from "./BannerItem.astro";
+
+import { BannerName } from "../../../consts/bannerName";
+
+
+
+---
+
+<section class="flex flex-wrap bg-black w-full p-4 text-white justify-center items-center gap-2">
+    <BannerItem name={BannerName.LIDERAZGO}/>
+    <BannerItem name={BannerName.EXCELENCIA}/>
+    <BannerItem name={BannerName.INTEGRIDAD}/>
+    <BannerItem name={BannerName.PARTICIPACION}/>
+    <BannerItem name={BannerName.DIVERSIDAD}/>
+    <BannerItem name={BannerName.SOSTENIBILIDAD}/>
+
+</section>

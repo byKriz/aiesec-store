@@ -1,0 +1,25 @@
+---
+import { BannerName } from "../../../consts/bannerName";
+import DiamondIcon from "../../icons/DiamondIcon.astro";
+import HandShakeIcon from "../../icons/HandShakeIcon.astro";
+import MountainIcon from "../../icons/MountainIcon.astro";
+import PlantIcon from "../../icons/PlantIcon.astro";
+import TrophyIcon from "../../icons/TrophyIcon.astro";
+import WorldIcon from "../../icons/WorldIcon.astro";
+
+interface Props {
+    name: BannerName;
+}
+
+const { name } = Astro.props;
+---
+
+<article class="flex flex-nowrap gap-1 justify-center items-center">
+    {name === BannerName.LIDERAZGO && <MountainIcon />}
+    {name === BannerName.DIVERSIDAD && <WorldIcon />}
+    {name === BannerName.EXCELENCIA && <TrophyIcon />}
+    {name === BannerName.INTEGRIDAD && <DiamondIcon />}
+    {name === BannerName.PARTICIPACION && <HandShakeIcon />}
+    {name === BannerName.SOSTENIBILIDAD && <PlantIcon />}
+    <h3 class="text-xl font-bold">{name}</h3>
+</article>
