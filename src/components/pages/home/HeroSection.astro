@@ -1,0 +1,20 @@
+---
+import { Image } from "astro:assets";
+
+import modeloImg from "../../../../public/model2.webp";
+---
+
+<section class="grid grid-cols-1 grid-rows-2 w-full bg-slate-200">
+    <div class="px-4 py-4 w-full flex flex-col justify-center items-center">
+        <h2 class="text-4xl pb-3">FIND CLOTHES THAT MATCHES YOUR STYLE</h2>
+        <p class="text-slate-500 text-sm pb-4">
+            Browse through our diverse range of meticulously crafted garments,
+            designed to bring out your individuality and cater to your sense of
+            style.
+        </p>
+        <a href="#" class=" bg-black px-4 py-2 rounded-full text-white font-semibold">Compra Ahora</a>
+    </div>
+    <div class="w-full flex justify-center">
+        <Image src={modeloImg} alt={'falgo'} class={'w-[300px]'} loading={'eager'}/>
+    </div>
+</section>
