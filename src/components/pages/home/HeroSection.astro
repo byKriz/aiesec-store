@@ -4,17 +4,33 @@ import { Image } from "astro:assets";
 import modeloImg from "../../../../public/model2.webp";
 ---
 
-<section class="grid grid-cols-1 grid-rows-2 w-full bg-gray-200">
-    <div class="p-4 w-full flex flex-col justify-center items-center">
-        <h2 class="text-4xl pb-3">FIND CLOTHES THAT MATCHES YOUR STYLE</h2>
-        <p class="text-gray-500 text-sm pb-4">
+<section
+    class="w-full bg-gray-200 grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1 px-4"
+>
+    <div
+        class="p-4 w-full flex flex-col justify-center items-center md:items-start gap-4"
+    >
+        <h2 class="text-5xl pb-3 md:pb-0 md:text-4xl lg:text-6xl xl:text-7xl">
+            FIND CLOTHES THAT MATCHES YOUR STYLE
+        </h2>
+        <p class="text-gray-500 text-sm pb-4 md:text-base md:pb-0 lg:text-xl">
             Browse through our diverse range of meticulously crafted garments,
             designed to bring out your individuality and cater to your sense of
             style.
         </p>
-        <a href="#" class=" bg-black px-4 py-2 rounded-full text-white font-semibold">Compra Ahora</a>
+        <a
+            href="#"
+            class="bg-black duration-300 ease-in-out hover:bg-blue-600 w-full text-center px-4 py-3 rounded-full text-white font-semibold text-base
+            md:text-lg md:w-fit md:px-6"
+            >Compra Ahora</a
+        >
     </div>
-    <div class="w-full flex justify-center">
-        <Image src={modeloImg} alt={'falgo'} class={'w-[300px]'} loading={'eager'}/>
+    <div class="w-full flex justify-center shrink-0">
+        <Image
+            src={modeloImg}
+            alt={"falgo"}
+            class={" h-full w-[30rem] md:w-[40rem]"}
+            loading={"eager"}
+        />
     </div>
 </section>
