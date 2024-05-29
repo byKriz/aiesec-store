@@ -9,17 +9,19 @@ import WorldIcon from "../../icons/WorldIcon.astro";
 
 interface Props {
     name: BannerName;
+    iconClassName?: string;
+
 }
 
-const { name } = Astro.props;
+const { name, iconClassName } = Astro.props;
 ---
 
-<article class="flex flex-nowrap gap-1 justify-center items-center">
-    {name === BannerName.LIDERAZGO && <MountainIcon />}
-    {name === BannerName.DIVERSIDAD && <WorldIcon />}
-    {name === BannerName.EXCELENCIA && <TrophyIcon />}
-    {name === BannerName.INTEGRIDAD && <DiamondIcon />}
-    {name === BannerName.PARTICIPACION && <HandShakeIcon />}
-    {name === BannerName.SOSTENIBILIDAD && <PlantIcon />}
-    <h3 class="text-xl font-bold">{name}</h3>
+<article class={`flex flex-wrap gap-1 justify-center items-center font-bold`}>
+    {name === BannerName.LIDERAZGO && <MountainIcon className={iconClassName}/>}
+    {name === BannerName.DIVERSIDAD && <WorldIcon className={iconClassName}/>}
+    {name === BannerName.EXCELENCIA && <TrophyIcon className={iconClassName}/>}
+    {name === BannerName.INTEGRIDAD && <DiamondIcon className={iconClassName}/>}
+    {name === BannerName.PARTICIPACION && <HandShakeIcon className={iconClassName}/>}
+    {name === BannerName.SOSTENIBILIDAD && <PlantIcon className={iconClassName}/>}
+    <h3>{name}</h3>
 </article>

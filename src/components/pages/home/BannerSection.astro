@@ -4,16 +4,17 @@ import BannerItem from "./BannerItem.astro";
 
 import { BannerName } from "../../../consts/bannerName";
 
-
-
+const iconStyle = "md:size-8 lg:size-10";
 ---
 
-<section class="flex flex-wrap bg-black w-full p-4 text-white justify-center items-center gap-2">
-    <BannerItem name={BannerName.LIDERAZGO}/>
-    <BannerItem name={BannerName.EXCELENCIA}/>
-    <BannerItem name={BannerName.INTEGRIDAD}/>
-    <BannerItem name={BannerName.PARTICIPACION}/>
-    <BannerItem name={BannerName.DIVERSIDAD}/>
-    <BannerItem name={BannerName.SOSTENIBILIDAD}/>
-
+<section
+    class="text-xl flex flex-wrap bg-black w-full px-6 py-4 text-white justify-center items-center gap-2
+    md:gap-8 md:text-3xl lg:text-5xl"
+>
+    <BannerItem name={BannerName.LIDERAZGO} iconClassName={iconStyle} />
+    <BannerItem name={BannerName.EXCELENCIA} iconClassName={iconStyle} />
+    <BannerItem name={BannerName.INTEGRIDAD} iconClassName={iconStyle} />
+    <BannerItem name={BannerName.PARTICIPACION} iconClassName={iconStyle} />
+    <BannerItem name={BannerName.DIVERSIDAD} iconClassName={iconStyle} />
+    <BannerItem name={BannerName.SOSTENIBILIDAD} iconClassName={iconStyle} />
 </section>
