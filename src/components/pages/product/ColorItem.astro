@@ -1,0 +1,22 @@
+---
+import { Colors } from "../../../models/Color";
+
+interface Props {
+  color: Colors;
+}
+
+const { color } = Astro.props;
+---
+
+<div
+  class:list={[
+    "size-10 rounded-full",
+    {
+      "bg-blue-600": color === Colors.BLUE,
+      "bg-black/90": color === Colors.BLACK,
+      "bg-green-700": color === Colors.GREEN,
+    },
+  ]}
+  class=""
+>
+</div>

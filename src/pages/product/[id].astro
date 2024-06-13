@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+
+import ProductLayout from "../../layouts/ProductLayout.astro";
+import ItemRoute from "../../components/pages/product/ItemRoute.astro";
+import SeparationLine from "../../components/shared/SeparationLine.astro";
+import ProductText from "../../components/pages/product/ProductText.astro";
+import ColorsBlock from "../../components/pages/product/ColorsBlock.astro";
+import ClothingSizeBlock from "../../components/pages/product/ClothingSizeBlock.astro";
+import ButtonLink from "../../components/shared/ButtonLink.astro";
+import MainProducstSection from "../../components/shared/MainProducstSection.astro";
+
+import { Colors } from "../../models/Color";
+
+import shirt1 from "../../../public/products/shirts/shirt1.jpg";
+
+const { id } = Astro.params;
+---
+
+<ProductLayout title={`product ${id}`}>
+  <SeparationLine />
+  <div class="grid grid-cols-1 px-4 py-4 lg:px-10 gap-3">
+    <ItemRoute />
+    <div>
+      <Image
+        src={shirt1}
+        alt={"franela"}
+        class="w-full aspect-square object-cover rounded-xl"
+      />
+    </div>
+    <ProductText />
+    <SeparationLine />
+    <ColorsBlock />
+    <SeparationLine />
+    <ClothingSizeBlock />
+    <ButtonLink text="Pidelo Ya!" isPrincipal={true} className="my-2" />
+    <MainProducstSection title="Articulos Populares" pt={false} />
+  </div>
+</ProductLayout>

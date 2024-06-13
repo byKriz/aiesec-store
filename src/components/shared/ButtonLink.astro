@@ -1,19 +1,22 @@
 ---
 interface Props {
-    href?: string;
-    isPrincipal?: boolean;
-    text: string;
+  href?: string;
+  isPrincipal?: boolean;
+  text: string;
+  className?: string;
 }
 
-const { href = "#", text, isPrincipal = false } = Astro.props;
+const { href = "#", text, isPrincipal = false, className } = Astro.props;
 ---
 
 <a
-    href={href}
-    class={`duration-300 ease-in-out w-full text-center px-4 py-3 rounded-full font-semibold text-base md:text-lg md:w-fit md:px-6  
+  href={href}
+  class={`duration-300 ease-in-out w-full text-center px-4 py-3 rounded-full font-semibold text-base md:text-lg md:w-fit md:px-6  
     ${
-        isPrincipal
-            ? "bg-black hover:bg-blue-600 text-white"
-            : "border border-gray-500 text-gray-500 hover:border-yellow-500 hover:text-white hover:bg-yellow-500"
-    } `}>{text}</a
+      isPrincipal
+        ? "bg-black hover:bg-blue-600 text-white"
+        : "border border-gray-500 text-gray-500 hover:border-yellow-500 hover:text-white hover:bg-yellow-500"
+    } 
+    ${className} 
+     `}>{text}</a
 >
