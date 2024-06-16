@@ -63,6 +63,7 @@ const product = productsList.find((product) => id === product.id);
       <ProductText
         name={product?.name as string}
         description={product?.description as string}
+        price={product?.price as number}
       />
       {product?.colors && <ColorsBlock colors={product.colors} />}
 
