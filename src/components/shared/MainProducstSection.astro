@@ -24,11 +24,6 @@ const { title, pt = true } = Astro.props;
   <div
     class="w-full flex overflow-x-scroll lg:overflow-x-hidden lg:grid lg:grid-cols-4 gap-4 mb-8"
   >
-    <!-- <div class="w-full flex overflow-x-auto md:grid md:grid-cols-3 gap-4 mb-8"> -->
-    <!-- <ProductItem />
-    <ProductItem />
-    <ProductItem />
-    <ProductItem /> -->
     {productsList.slice(0, 4).map(product => (<ProductItem product={product}/>))}
 
   </div>
