@@ -1,0 +1,25 @@
+---
+import { type Product } from "../../models/Product";
+
+interface Props {
+    hasProduct?: Product;
+}
+
+const { hasProduct } = Astro.props;
+
+const linkStyle = "hover:text-black duration-300 transition-colors ease-in-out";
+---
+
+<div class="font-semibold text-gray-600 flex gap-2">
+    <a href="/" class={linkStyle}>Home</a>
+    {" > "}
+    <a href="/shop" class={`${hasProduct ? "text-black" : linkStyle}`}>Tienda</a>
+    {
+        hasProduct && (
+            <>
+                {" "}
+                {" > "} <span class="text-black">{hasProduct.category}</span>
+            </>
+        )
+    }
+</div>

@@ -1,0 +1,54 @@
+---
+import { ViewTransitions } from "astro:transitions";
+
+import "@fontsource/bungee";
+import "@fontsource-variable/rubik";
+
+import Navbar from "../components/shared/Navbar.astro";
+import Footer from "../components/shared/Footer.astro";
+import PathNavigation from "../components/shared/PathNavigation.astro";
+
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+		<ViewTransitions />
+    </head>
+    <body class="bg-gray-100 w-full flex flex-col justify-center items-center">
+        <Navbar separationLine={true} />
+        <main
+            class="flex flex-col items-center justify-center w-full relative px-4 md:px-10"
+        >
+            <div class="flex w-full flex-col">
+                <h1 class="my-2 text-2xl font-bold">Todos los productos</h1>
+                <PathNavigation />
+            </div>
+
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>
+
+<style is:global>
+    h2,
+    h3 {
+        font-family: "Bungee", system-ui, sans-serif;
+    }
+
+    span {
+        font-family: "Rubik Variable", sans-serif;
+    }
+</style>

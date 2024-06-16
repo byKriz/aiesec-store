@@ -1,0 +1,23 @@
+---
+import PathLocation from "../../components/shared/PathLocation.astro";
+import ProductItem from "../../components/shared/ProductItem.astro";
+import SeparationLine from "../../components/shared/SeparationLine.astro";
+import ShopLayout from "../../layouts/ShopLayout.astro";
+
+import { productsList } from "../../consts/productsList";
+---
+
+<ShopLayout title="Todos los productos">
+    <div class="w-full grid grid-cols-2 gap-4 py-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+
+        {productsList.map((product) => (
+            <ProductItem product={product} isShopItem={true}/>
+        ))}
+        <!-- <ProductItem isShopItem={true} />
+        <ProductItem isShopItem={true} />
+        <ProductItem isShopItem={true} />
+        <ProductItem isShopItem={true} />
+        <ProductItem isShopItem={true} />
+        <ProductItem isShopItem={true} /> -->
+    </div>
+</ShopLayout>

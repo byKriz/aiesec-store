@@ -1,4 +1,5 @@
 export enum Categories {
-  FRANELAS = "FRANELAS",
-  STICKERS = "STICKERS",
+  FRANELAS = "Franelas",
+  STICKERS = "Stickers",
+  FLAYERS = "Flayers"
 }

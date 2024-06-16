@@ -1,0 +1,54 @@
+---
+const path = Astro.url.pathname;
+
+const pathDirectory = (path: string) => {
+    const pathList = path.split("/").slice(1);
+    return pathList;
+};
+
+const firstUpperCase = (str: string) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
+const pathList = pathDirectory(path);
+
+interface Props {
+    productCategory?: string;
+}
+
+const { productCategory } = Astro.props;
+
+const linkStyle = "hover:text-black duration-300 transition-colors ease-in-out";
+---
+
+<div class="font-semibold text-gray-600 flex gap-2">
+    <a href="/" class={linkStyle}>Home</a>
+    {" > "}
+    {
+        pathList.map((item, index) => {
+            if (index !== pathList.length - 1 && index !== 0) {
+                return (
+                    <>
+                        <a
+                            href={`/${pathList[index - 1]}/${item}`}
+                            class={linkStyle}
+                        >
+                            {firstUpperCase(item)}
+                        </a>{" "}
+                        {" > "}
+                    </>
+                );
+            }
+            return (
+                <a href={`/${item}`} class={linkStyle}>
+                    {firstUpperCase(item)}
+                </a>
+            );
+        })
+    }
+    {
+        productCategory && (
+            <span class={linkStyle}>{firstUpperCase(productCategory)}</span>
+        )
+    }
+</div>
