@@ -31,12 +31,12 @@ const product = productsList.find((product) => id === product.id);
 
 <ProductLayout title={`${product?.name} | ${product?.category}`}>
   <SeparationLine />
-  <div class="flex my-2 w-full px-4 md:px-[40px]">
-    <PathNavigation hasProduct={product}/>
-  </div>
   <div
-    class="grid grid-cols-1 md:grid-cols-2 px-4 pt-2 lg:px-10 gap-3 md:gap-x-6 max-w-[1400px]  "
+    class="grid grid-cols-1 md:grid-cols-2 px-4 pt-2 lg:px-10 gap-3 md:gap-x-6 max-w-[1400px]"
   >
+    <div class="flex my-2 w-full md:col-span-2">
+      <PathNavigation hasProduct={product} />
+    </div>
     <div
       class:list={[
         "p-4 rounded-xl",
