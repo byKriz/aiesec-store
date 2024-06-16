@@ -4,36 +4,54 @@ import { type Product } from "../../models/Product";
 import { Categories } from "../../consts/categories";
 
 interface Props {
-    isShopItem?: boolean;
-    product: Product;
+  isShopItem?: boolean;
+  product: Product;
+  stopViewTransition?: boolean;
 }
 
-const { isShopItem = false, product } = Astro.props;
+const {
+  isShopItem = false,
+  product,
+  stopViewTransition: stopViewTransaction = false,
+} = Astro.props;
 ---
 
-<a href="#" class="group ">
-    <article
-        class={`grid grid-cols-1 gap-2 ${isShopItem ? "" : "min-w-[150px]"}`}
+<a href={`/product/${product.id}`} class="group">
+  <article
+    class={`grid grid-cols-1 gap-2 ${isShopItem ? "" : "min-w-[150px]"}`}
+  >
+    <div
+      class:list={[
+        "size-full overflow-hidden rounded-xl ",
+        {
+          "bg-emerald-300 p-4 lg:p-6": product.category === Categories.STICKERS,
+        },
+        { "bg-violet-300 p-2": product.category === Categories.FRANELAS },
+        { "bg-sky-300": product.category === Categories.FLAYERS },
+      ]}
     >
-        <div
-            class:list={[
-                "size-full overflow-hidden rounded-xl ",
-                {"bg-emerald-300 p-4": product.category === Categories.STICKERS},
-                {"bg-violet-300 p-2": product.category === Categories.FRANELAS},
-                {"bg-sky-300": product.category === Categories.FLAYERS},
-            ]}
-        >
-            <Image
-                src={product.image}
-                alt={product.name}
-                class="rounded-xl object-cover aspect-square group-hover:scale-110 transition-all duration-300 ease-in-out"
-            />
-        </div>
-        <div class="flex flex-col w-full">
-            <h3 class="text-bs font-semibold">{product.name}</h3>
-            <div>
-                <span class="font-semibold text-xl">$20</span>
-            </div>
-        </div>
-    </article>
+      {
+        stopViewTransaction ? (
+          <Image
+            src={product.image}
+            alt={product.name}
+            class="rounded-xl object-cover aspect-square group-hover:scale-110 transition-all duration-300 ease-in-out"
+          />
+        ) : (
+          <Image
+            src={product.image}
+            alt={product.name}
+            class="rounded-xl object-cover aspect-square group-hover:scale-110 transition-all duration-300 ease-in-out"
+            transition:name={`${product?.name}-${product?.id}`}
+          />
+        )
+      }
+    </div>
+    <div class="flex flex-col w-full">
+      <h3 class="text-bs font-semibold">{product.name}</h3>
+      <div>
+        <span class="font-semibold text-xl">$20</span>
+      </div>
+    </div>
+  </article>
 </a>

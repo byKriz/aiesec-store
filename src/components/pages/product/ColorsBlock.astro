@@ -1,13 +1,20 @@
 ---
+import SeparationLine from "../../../components/shared/SeparationLine.astro";
 import ColorItem from "../../../components/pages/product/ColorItem.astro";
 import { Colors } from "../../../models/Color";
+
+interface Props {
+  colors: Colors[];
+}
+
+const { colors } = Astro.props;
 ---
 
 <div class="flex flex-col gap-3">
   <h3 class="text-gray-500">Colores disponibles</h3>
   <div class="flex gap-4">
-    <ColorItem color={Colors.BLUE} />
-    <ColorItem color={Colors.BLACK} />
-    <ColorItem color={Colors.GREEN} />
+    {colors.map((color) => <ColorItem color={color} />)}
   </div>
 </div>
+<SeparationLine />
+

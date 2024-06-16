@@ -3,30 +3,37 @@ import { ShopIcon } from "../icons/ShopIcon";
 import SeparationLine from "./SeparationLine.astro";
 
 interface Props {
-    separationLine?: boolean;
+  separationLine?: boolean;
 }
 
 const { separationLine = false } = Astro.props;
 ---
 
 <header class="flex flex-col w-full px-4 lg:px-10">
-    <div class="flex items-center justify-between py-6">
-        <div class="flex items-center jus w-full">
-            <h1 class="text-3xl font-bold">AIESEC.ST</h1>
-        </div>
-        <div></div>
-        <div class="flex justify-end">
-            <!-- <ShopIcon /> -->
-            <nav class="hidden text-center md:block">
-                <ul class="flex gap-6 text-gray-600 font-semibold">
-                    <li class="hover:text-black transition-colors duration-300"><a href="#">Home</a></li>
-                    <li class="hover:text-black transition-colors duration-300"><a href="/shop">Tienda</a></li>
-                    <li class="hover:text-black transition-colors duration-300"><a href="#">Conocenos</a></li>
-                    <li class="hover:text-black transition-colors duration-300"><a href="#">Cantacto</a></li>
-                </ul>
-            </nav>
-            
-        </div>
+  <div class="flex items-center justify-between py-6">
+    <div class="flex items-center jus w-full">
+      <a href="/"><h1 class="text-3xl font-bold">AIESEC.ST</h1></a>
     </div>
-    {separationLine && <SeparationLine />}
+    <div></div>
+    <div class="flex justify-end">
+      <!-- <ShopIcon /> -->
+      <nav class="hidden text-center md:block">
+        <ul class="flex gap-6 text-gray-600 font-semibold">
+          <li class="hover:text-black transition-colors duration-300">
+            <a href="#">Home</a>
+          </li>
+          <li class="hover:text-black transition-colors duration-300">
+            <a href="/shop">Tienda</a>
+          </li>
+          <li class="hover:text-black transition-colors duration-300">
+            <a href="#">Conocenos</a>
+          </li>
+          <li class="hover:text-black transition-colors duration-300">
+            <a href="#">Cantacto</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  {separationLine && <SeparationLine />}
 </header>

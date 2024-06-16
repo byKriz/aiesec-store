@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import type { GetStaticPaths } from "astro";
 
 import ProductLayout from "../../layouts/ProductLayout.astro";
 import ItemRoute from "../../components/pages/product/ItemRoute.astro";
@@ -9,31 +10,70 @@ import ColorsBlock from "../../components/pages/product/ColorsBlock.astro";
 import ClothingSizeBlock from "../../components/pages/product/ClothingSizeBlock.astro";
 import ButtonLink from "../../components/shared/ButtonLink.astro";
 import MainProducstSection from "../../components/shared/MainProducstSection.astro";
+import PathNavigation from "../../components/shared/PathNavigation.astro";
+
+import { Categories } from "../../consts/categories";
 
 import { Colors } from "../../models/Color";
+import { productsList } from "../../consts/productsList";
 
 import shirt1 from "../../../public/products/shirts/shirt1.jpg";
 
 const { id } = Astro.params;
+
+export const getStaticPaths = (() => {
+  const path = productsList.map((product) => ({ params: { id: product.id } }));
+  return path;
+}) satisfies GetStaticPaths;
+
+const product = productsList.find((product) => id === product.id);
 ---
 
-<ProductLayout title={`product ${id}`}>
+<ProductLayout title={`${product?.name} | ${product?.category}`}>
   <SeparationLine />
-  <div class="grid grid-cols-1 px-4 py-4 lg:px-10 gap-3">
-    <ItemRoute />
-    <div>
-      <Image
-        src={shirt1}
-        alt={"franela"}
-        class="w-full aspect-square object-cover rounded-xl"
-      />
-    </div>
-    <ProductText />
-    <SeparationLine />
-    <ColorsBlock />
-    <SeparationLine />
-    <ClothingSizeBlock />
-    <ButtonLink text="Pidelo Ya!" isPrincipal={true} className="my-2" />
-    <MainProducstSection title="Articulos Populares" pt={false} />
+  <div class="flex my-2 w-full px-4 md:px-[40px]">
+    <PathNavigation hasProduct={product}/>
   </div>
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 px-4 pt-2 lg:px-10 gap-3 md:gap-x-6 max-w-[1400px]  "
+  >
+    <div
+      class:list={[
+        "p-4 rounded-xl",
+        {
+          "bg-emerald-300 p-4 lg:p-6":
+            product?.category === Categories.STICKERS,
+        },
+        { "bg-violet-300 p-2": product?.category === Categories.FRANELAS },
+        { "bg-sky-300": product?.category === Categories.FLAYERS },
+      ]}
+    >
+      {
+        product?.image && (
+          <Image
+            src={product!.image}
+            alt={`${product?.name}-${product?.id}`}
+            class="w-full aspect-square object-cover rounded-xl"
+            transition:name={`${product?.name}-${product?.id}`}
+          />
+        )
+      }
+    </div>
+    <div class="flex flex-col gap-3">
+      <ProductText
+        name={product?.name as string}
+        description={product?.description as string}
+      />
+      {product?.colors && <ColorsBlock colors={product.colors} />}
+
+      <ClothingSizeBlock />
+      <ButtonLink text="Pidelo Ya!" isPrincipal={true} className="my-2" />
+    </div>
+  </div>
+  <MainProducstSection
+    className="max-w-[1400px] mt-8"
+    title="Articulos Populares"
+    pt={false}
+    stopViewTransition={true}
+  />
 </ProductLayout>
