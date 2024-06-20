@@ -9,9 +9,16 @@ interface Props {
   pt?: boolean;
   stopViewTransition?: boolean;
   className?: string;
+  activeButtonLink?: boolean;
 }
 
-const { title, pt = true, stopViewTransition = false, className } = Astro.props;
+const {
+  title,
+  pt = true,
+  stopViewTransition = false,
+  className,
+  activeButtonLink = true,
+} = Astro.props;
 ---
 
 <section
@@ -36,5 +43,5 @@ const { title, pt = true, stopViewTransition = false, className } = Astro.props;
         ))
     }
   </div>
-  <ButtonLink text="Todos los productos" />
+  {activeButtonLink && <ButtonLink text="Todos los productos" href="/shop"/>}
 </section>

@@ -14,10 +14,7 @@ import PathNavigation from "../../components/shared/PathNavigation.astro";
 
 import { Categories } from "../../consts/categories";
 
-import { Colors } from "../../models/Color";
 import { productsList } from "../../consts/productsList";
-
-import shirt1 from "../../../public/products/shirts/shirt1.jpg";
 
 const { id } = Astro.params;
 
@@ -45,7 +42,7 @@ const product = productsList.find((product) => id === product.id);
             product?.category === Categories.STICKERS,
         },
         { "bg-violet-300 p-2": product?.category === Categories.FRANELAS },
-        { "bg-sky-300": product?.category === Categories.FLAYERS },
+        { "bg-sky-300": product?.category === Categories.LANYARD },
       ]}
     >
       {
@@ -55,6 +52,7 @@ const product = productsList.find((product) => id === product.id);
             alt={`${product?.name}-${product?.id}`}
             class="w-full aspect-square object-cover rounded-xl"
             transition:name={`${product?.name}-${product?.id}`}
+            loading={'eager'}
           />
         )
       }
@@ -66,15 +64,15 @@ const product = productsList.find((product) => id === product.id);
         price={product?.price as number}
       />
       {product?.colors && <ColorsBlock colors={product.colors} />}
-
-      <ClothingSizeBlock />
-      <ButtonLink text="Pidelo Ya!" isPrincipal={true} className="my-2" />
+      {product?.category === Categories.FRANELAS && <ClothingSizeBlock />}
+      <ButtonLink text="Pidelo Ya!" isPrincipal={true} className="my-2" href="https://forms.gle/p3NS3wCvhfMX3bYR7"/>
     </div>
   </div>
   <MainProducstSection
-    className="max-w-[1400px] mt-8"
+    className="max-w-[1400px] my-8"
     title="Articulos Populares"
     pt={false}
     stopViewTransition={true}
+    activeButtonLink={false}
   />
 </ProductLayout>

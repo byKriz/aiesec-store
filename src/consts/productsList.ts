@@ -21,8 +21,8 @@ export const productsList: Product[] = [
     id: '2',
     name: "Flayer 1",
     description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa esse hic rerum soluta maiores sapiente",
-    category: Categories.FLAYERS,
+      "Hola people ipsum dolor sit amet consectetur, adipisicing elit. Culpa esse hic rerum soluta maiores sapiente",
+    category: Categories.LANYARD,
     price: 5,
     image: flayer1,
   },
