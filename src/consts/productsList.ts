@@ -23,7 +23,7 @@ export const productsList: Product[] = [
     description:
       "Hola people ipsum dolor sit amet consectetur, adipisicing elit. Culpa esse hic rerum soluta maiores sapiente",
     category: Categories.LANYARD,
-    price: 5,
+    price: 4,
     image: flayer1,
   },
   {
