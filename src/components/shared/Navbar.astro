@@ -1,6 +1,10 @@
 ---
+import { Image } from "astro:assets";
+
 import { ShopIcon } from "../icons/ShopIcon";
 import SeparationLine from "./SeparationLine.astro";
+
+import logoImg from "../../../public/logo.webp"
 
 interface Props {
   separationLine?: boolean;
@@ -12,12 +16,15 @@ const { separationLine = false } = Astro.props;
 <header class="flex flex-col w-full px-4 lg:px-10">
   <div class="flex items-center justify-between py-6">
     <div class="flex items-center jus w-full">
-      <a href="/"><h1 class="text-3xl font-bold">AIESEC.ST</h1></a>
+      <a href="/" class="flex items-center gap-2">
+        <Image src={logoImg} alt="Logo AIESEC" class="size-8" />
+        <h1 class="text-3xl font-bold">AIESEC.ST</h1></a
+      >
     </div>
     <div></div>
     <div class="flex justify-end">
       <!-- <ShopIcon /> -->
-      <nav class=" text-center md:block">
+      <nav class="text-center md:block">
         <ul class="flex gap-6 text-gray-600 font-semibold">
           <li class="hover:text-black transition-colors duration-300">
             <a href="/">Home</a>
