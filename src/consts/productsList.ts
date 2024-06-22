@@ -3,8 +3,13 @@ import { Categories } from "./categories";
 import { Colors } from "../models/Color";
 
 import franela1 from "../../public/products/shirts/camisa-1.webp";
-import sticker1 from "../../public/products/stickers/STICKER_1-1.png";
 import flayer1 from "../../public/products/flayers/flayer-1.webp";
+import sticker1 from "../../public/products/stickers/STICKER_1-1.webp";
+import sticker2 from "../../public/products/stickers/STICKER_2-1.webp";
+import sticker3 from "../../public/products/stickers/STICKER_3-1.webp";
+import sticker4 from "../../public/products/stickers/STICKER_4-1.webp";
+import sticker5 from "../../public/products/stickers/STICKER_5-1.webp";
+import sticker6 from "../../public/products/stickers/STICKER_6-1.webp";
 
 export const productsList: Product[] = [
   {
@@ -19,7 +24,7 @@ export const productsList: Product[] = [
   },
   {
     id: '2',
-    name: "Lanyard 1",
+    name: "AIESEC Lanyard",
     description:
       "Hola people ipsum dolor sit amet consectetur, adipisicing elit. Culpa esse hic rerum soluta maiores sapiente",
     category: Categories.LANYARD,
@@ -28,7 +33,7 @@ export const productsList: Product[] = [
   },
   {
     id: '3',
-    name: "Sticker 1",
+    name: "Sticker - AIESEC",
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa esse hic rerum soluta maiores sapiente",
     category: Categories.STICKERS,
@@ -37,29 +42,47 @@ export const productsList: Product[] = [
   },
   {
     id: '4',
-    name: "Sticker 1",
+    name: "Sticker - SIUUUU",
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa esse hic rerum soluta maiores sapiente",
     category: Categories.STICKERS,
     price: 1,
-    image: sticker1,
+    image: sticker2,
   },
   {
     id: '5',
-    name: "Sticker 1",
+    name: "Sticker - Eva esta orgullosa de ti",
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa esse hic rerum soluta maiores sapiente",
     category: Categories.STICKERS,
     price: 1,
-    image: sticker1,
+    image: sticker3,
   },
   {
     id: '6',
-    name: "Sticker 1",
+    name: "Sticker - ¿Donde estan las atrevidas?",
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa esse hic rerum soluta maiores sapiente",
     category: Categories.STICKERS,
     price: 1,
-    image: sticker1,
+    image: sticker4,
+  },
+  {
+    id: '7',
+    name: "Sticker - A eva me la respetas",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa esse hic rerum soluta maiores sapiente",
+    category: Categories.STICKERS,
+    price: 1,
+    image: sticker5,
+  },
+  {
+    id: '8',
+    name: "Sticker - Tan perfecta",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa esse hic rerum soluta maiores sapiente",
+    category: Categories.STICKERS,
+    price: 1,
+    image: sticker6,
   },
 ];

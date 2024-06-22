@@ -50,7 +50,7 @@ const product = productsList.find((product) => id === product.id);
           <Image
             src={product!.image}
             alt={`${product?.name}-${product?.id}`}
-            class="w-full aspect-square object-cover rounded-xl"
+            class={`w-full aspect-square object-cover rounded-xl ${product?.category === Categories.STICKERS ? 'p-4 lg:p-8' : ''}`}
             transition:name={`${product?.name}-${product?.id}`}
             loading={'eager'}
           />
@@ -62,6 +62,7 @@ const product = productsList.find((product) => id === product.id);
         name={product?.name as string}
         description={product?.description as string}
         price={product?.price as number}
+        id={product?.id as string}
       />
       {product?.colors && <ColorsBlock colors={product.colors} />}
       {product?.category === Categories.FRANELAS && <ClothingSizeBlock />}

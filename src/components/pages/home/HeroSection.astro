@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 
 import modeloImg from "../../../../public/model2.webp";
+import aiesecPic from "../../../../public/aiesec-models.webp"
 import ButtonLink from "../../shared/ButtonLink.astro";
 ---
 
@@ -21,9 +22,9 @@ import ButtonLink from "../../shared/ButtonLink.astro";
 
         <ButtonLink isPrincipal={true} text="Compra Ahora" href="/shop"/>
     </div>
-    <div class="w-full flex justify-center shrink-0">
+    <div class="w-full flex justify-center shrink-0 lg:pt-10">
         <Image
-            src={modeloImg}
+            src={aiesecPic}
             alt={"falgo"}
             class={" h-full w-[30rem] md:w-[40rem] object-cover"}
             loading={"eager"}

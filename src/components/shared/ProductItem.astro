@@ -6,13 +6,13 @@ import { Categories } from "../../consts/categories";
 interface Props {
   isShopItem?: boolean;
   product: Product;
-  stopViewTransition?: boolean;
+  stopViewTransaction?: boolean;
 }
 
 const {
   isShopItem = false,
   product,
-  stopViewTransition: stopViewTransaction = false,
+  stopViewTransaction = false,
 } = Astro.props;
 ---
 
@@ -48,7 +48,18 @@ const {
       }
     </div>
     <div class="flex flex-col w-full">
-      <h3 class="text-bs font-semibold">{product.name}</h3>
+      {
+        stopViewTransaction ? (
+          <h3 class="text-bs font-semibold">{product.name}</h3>
+        ) : (
+          <h3
+            class="text-bs font-semibold"
+            transition:name={`title ${product?.name}-${product?.id}`}
+          >
+            {product.name}
+          </h3>
+        )
+      }
       <div>
         <span class="font-semibold text-xl">${product.price}</span>
       </div>
