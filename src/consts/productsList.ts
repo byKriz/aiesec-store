@@ -78,7 +78,7 @@ export const productsList: Product[] = [
   },
   {
     id: '8',
-    name: "Sticker - Tan perfecta",
+    name: "Sticker - Es tan perfecta",
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa esse hic rerum soluta maiores sapiente",
     category: Categories.STICKERS,

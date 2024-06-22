@@ -66,7 +66,7 @@ const product = productsList.find((product) => id === product.id);
       />
       {product?.colors && <ColorsBlock colors={product.colors} />}
       {product?.category === Categories.FRANELAS && <ClothingSizeBlock />}
-      <ButtonLink text="Pidelo Ya!" isPrincipal={true} className="my-2" href="https://forms.gle/p3NS3wCvhfMX3bYR7"/>
+      <ButtonLink text="Pidelo Ya!" isPrincipal={true} blank={true} className="my-2" href="https://forms.gle/p3NS3wCvhfMX3bYR7"/>
     </div>
   </div>
   <MainProducstSection
