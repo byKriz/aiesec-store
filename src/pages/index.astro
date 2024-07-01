@@ -5,12 +5,14 @@ import HeroSection from '../components/pages/home/HeroSection.astro';
 import BannerSection from '../components/pages/home/BannerSection.astro';
 import MainProducstSection from '../components/shared/MainProducstSection.astro';
 import CategorySection from '../components/pages/home/CategorySection.astro';
+import { FaqSection } from '../components/pages/home/FaqSection';
 ---
 
 <Layout title="AIESEC Store">
 	<HeroSection />
 	<BannerSection />
 	<MainProducstSection title='Productos Principales'/>
+	<FaqSection client:load/>
 	<CategorySection />
 </Layout>
 
